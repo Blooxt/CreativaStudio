@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativaStudio - Diseño Gráfico Profesional</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CreativaStudio</div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Diseño que inspira y conecta</h1>
+                <p>Transformamos tus ideas en experiencias visuales impactantes</p>
+                <a href="#contacto" class="btn">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño de Logo</h3>
+                    <p>Identidad visual única para tu marca que comunica tu esencia.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Diseño Web</h3>
+                    <p>Sitios web atractivos, funcionales y optimizados para conversiones.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Experiencias de usuario intuitivas y visualmente atractivas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio" class="portfolio">
+        <div class="container">
+            <h2>Nuestro Trabajo</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/project1.jpg" alt="Proyecto 1">
+                    <div class="overlay">
+                        <h3>Branding Café</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/project2.jpg" alt="Proyecto 2">
+                    <div class="overlay">
+                        <h3>App Financiera</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/project3.jpg" alt="Proyecto 3">
+                    <div class="overlay">
+                        <h3>E-commerce</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> hola@creativastudio.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                    <div id="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CreativaStudio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
