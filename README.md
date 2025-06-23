@@ -15,13 +15,12 @@ Nota: Asegúrate de que la carpeta C:\data\db exista.
 
 3. Configurar e iniciar el Backend
 En una segunda Terminal abierta desde la carpeta backend ejecuta:
-
 cd backend (si no estas ya en el back)
-npm install
+npm i
 npm start
 El servidor deberia estar en: http://localhost:3000
 
-4. Ejecutar el Frontend
+5. Ejecutar el Frontend
 Opción A (Recomendada):
 Usar Live Server (extensión de VSCode) para abrir frontend/index.html.
 
@@ -29,8 +28,7 @@ Opción B:
 Abrir directamente el archivo frontend/index.html en tu navegador.
 
 5. Verificar la base de datos (Opcional)
-En una tercera terminal puedes consultar los mensajes guardados :
-
+En una tercera terminal puedes consultar los mensajes guardados:
 mongosh
 use landing_contactos
 db.contactos.find()
