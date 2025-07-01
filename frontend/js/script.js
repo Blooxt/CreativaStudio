@@ -22,8 +22,16 @@ const formMessage = document.getElementById('form-message');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+const recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    formMessage.textContent = 'Por favor, completa el reCAPTCHA';
+    formMessage.className = 'error';
+    return;
+  }
+
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
+    data['g-recaptcha-response'] = recaptchaResponse;
     
     try {
         const response = await fetch('http://localhost:3000/api/contacto', {

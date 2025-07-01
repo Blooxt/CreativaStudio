@@ -1,7 +1,20 @@
 const Contacto = require('../../backend/models/Contacto');
-
+const axios = require('axios');
 exports.crearContacto = async (req, res) => {
     try {
+
+    const recaptchaResponse = req.body['g-recaptcha-response'];
+    if (!recaptchaResponse) {
+      return res.status(400).json({ message: 'reCAPTCHA no proporcionado' });
+    }
+
+    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=6LeFaWsrAAAAABlwZIgjuaKxuJgWwHoIEDcAKabN=${recaptchaResponse}`;
+    
+    const recaptchaResult = await axios.post(verificationUrl);
+    if (!recaptchaResult.data.success) {
+      return res.status(400).json({ message: 'reCAPTCHA inválido' });
+    }
+
         const nuevoContacto = new Contacto(req.body);
         await nuevoContacto.save();
         res.status(201).json({ 
