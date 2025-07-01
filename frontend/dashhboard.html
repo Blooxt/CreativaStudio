@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Leads - CreativaStudio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Panel de Administración de Leads</h1>
+        <button onclick="logout()">Cerrar sesión</button>
+    </header>
+
+    <main>
+        <div id="leadTableContainer">
+            <table id="leadsTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th>Mensaje</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Cambiar Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="leadsBody">
+                    <!-- Datos de leads se cargan dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
