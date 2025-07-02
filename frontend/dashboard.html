@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CreativaStudio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos adicionales para el dashboard */
+        .dashboard-header {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .sidebar-menu i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-right: 1.5rem;
+        }
+        
+        .user-info h2 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .user-info p {
+            margin: 0;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CreativaStudio</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#portafolio">Portafolio</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#" id="logout-btn" class="login-btn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                </ul>
+                <div class="burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dashboard-header">
+        <div class="container">
+            <h1>Panel de Administración</h1>
+            <p>Gestiona tus proyectos y clientes en un solo lugar</p>
+        </div>
+    </section>
+
+    <div class="container dashboard-content">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="user-avatar" id="userAvatar">CS</div>
+                <div class="user-info">
+                    <h2 id="userName">Creativa Studio</h2>
+                    <p id="userEmail">admin@creativastudio.com</p>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Mensajes</a></li>
+                <li><a href="#"><i class="fas fa-briefcase"></i> Proyectos</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Nuevos mensajes</h3>
+                    <p id="newLeads">12</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Proyectos activos</h3>
+                    <p id="activeProjects">5</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Proyectos completados</h3>
+                    <p id="completedProjects">24</p>
+                </div>
+            </div>
+            
+            <h2><i class="fas fa-envelope"></i> Últimos mensajes</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Mensaje</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leadsBody">
+                        <!-- Los leads se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CreativaStudio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Verificación de autenticación
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user || !user.loggedIn) {
+            window.location.href = 'login.html';
+        } else {
+            // Mostrar información del usuario
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userAvatar').textContent = user.name.charAt(0);
+        }
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('user');
+            window.location.href = 'index.html';
+        });
+
+        // Simulación de datos para el dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            // Aquí iría tu función fetchLeads() que ya tienes en script.js
+            // Para este ejemplo, simulamos algunos datos
+            const leadsBody = document.getElementById('leadsBody');
+            
+            const sampleLeads = [
+                {
+                    id: 1,
+                    nombre: "Ana López",
+                    email: "ana@ejemplo.com",
+                    telefono: "555-1234",
+                    mensaje: "Interesado en diseño de logo",
+                    fecha: "2023-05-15",
+                    estado: "nuevo"
+                },
+                {
+                    id: 2,
+                    nombre: "Carlos Méndez",
+                    email: "carlos@empresa.com",
+                    telefono: "555-5678",
+                    mensaje: "Cotización para sitio web",
+                    fecha: "2023-05-14",
+                    estado: "contactado"
+                },
+                {
+                    id: 3,
+                    nombre: "María González",
+                    email: "maria@tienda.com",
+                    telefono: "555-9012",
+                    mensaje: "Diseño de catálogo digital",
+                    fecha: "2023-05-10",
+                    estado: "nuevo"
+                }
+            ];
+
+            sampleLeads.forEach(lead => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${lead.nombre}</td>
+                    <td>${lead.email}</td>
+                    <td>${lead.telefono}</td>
+                    <td>${lead.mensaje}</td>
+                    <td>${new Date(lead.fecha).toLocaleDateString()}</td>
+                    <td>${lead.estado}</td>
+                    <td>
+                        <select onchange="cambiarEstado('${lead.id}', this.value)">
+                            <option value="nuevo" ${lead.estado === "nuevo" ? "selected" : ""}>Nuevo</option>
+                            <option value="contactado" ${lead.estado === "contactado" ? "selected" : ""}>Contactado</option>
+                            <option value="descartado" ${lead.estado === "descartado" ? "selected" : ""}>Descartado</option>
+                        </select>
+                    </td>
+                `;
+                leadsBody.appendChild(row);
+            });
+        });
+
+        function cambiarEstado(id, nuevoEstado) {
+            // Aquí iría tu función cambiarEstado() que ya tienes en script.js
+            console.log(`Cambiando estado del lead ${id} a ${nuevoEstado}`);
+            // En una implementación real, harías una petición PUT a tu API
+        }
+    </script>
+</body>
+</html>

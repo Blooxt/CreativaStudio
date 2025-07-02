@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -19,6 +21,8 @@
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#portafolio">Portafolio</a></li>
                     <li><a href="#contacto">Contacto</a></li>
+                    <!-- Dentro de <ul class="nav-links"> agrega esto al final -->
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
                 <div class="burger">
                     <i class="fas fa-bars"></i>
@@ -95,24 +99,18 @@
                     <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
                     <p><i class="fas fa-phone"></i> +1 234 567 890</p>
                     <p><i class="fas fa-envelope"></i> hola@creativastudio.com</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
-                    </div>
                 </div>
                 <div class="contact-form">
                     <h3>Envíanos un mensaje</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required />
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
+                            <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" />
                         </div>
                         <div class="form-group">
                             <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
@@ -136,4 +134,5 @@
 
     <script src="js/script.js"></script>
 </body>
+
 </html>

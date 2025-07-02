@@ -1,33 +1,50 @@
-const LOGIN_URL = "https://tubackend.com/api/login"; // cambia esta URL
-
 document.addEventListener("DOMContentLoaded", () => {
+    // Usuario temporal (solo para demostración)
+    const TEMP_USER = {
+        email: "cliente@creativastudio.com",
+        password: "Creativa123",
+        name: "Cliente Demo"
+    };
+
+    // Redirige si ya está logueado (excepto en login)
+    if (localStorage.getItem("user") && window.location.pathname.includes("login.html")) {
+        window.location.href = "dashboard.html";
+    }
+
     const form = document.getElementById("loginForm");
     if (form) {
-        form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", (e) => {
             e.preventDefault();
+            const errorMsg = document.getElementById("error-msg");
+            errorMsg.textContent = "";
 
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            try {
-                const response = await fetch(LOGIN_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ email, password })
-                });
+            // Validación
+            if (!email || !password) {
+                errorMsg.textContent = "Todos los campos son requeridos";
+                return;
+            }
 
-                const data = await response.json();
-
-                if (response.ok) {
-                    localStorage.setItem("token", data.token);
+            // Simulación de autenticación
+            if (email === TEMP_USER.email && password === TEMP_USER.password) {
+                // Guarda los datos del usuario en localStorage
+                localStorage.setItem("user", JSON.stringify({
+                    email: TEMP_USER.email,
+                    name: TEMP_USER.name,
+                    loggedIn: true
+                }));
+                
+                // Redirige al dashboard después de 1 segundo (para simular carga)
+                errorMsg.textContent = "¡Acceso correcto! Redirigiendo...";
+                errorMsg.style.color = "green";
+                setTimeout(() => {
                     window.location.href = "dashboard.html";
-                } else {
-                    document.getElementById("error-msg").textContent = data.message || "Login incorrecto";
-                }
-            } catch (err) {
-                document.getElementById("error-msg").textContent = "Error de conexión con el servidor.";
+                }, 1000);
+            } else {
+                errorMsg.textContent = "Credenciales incorrectas. Usa: cliente@creativastudio.com / Creativa123";
+                errorMsg.style.color = "red";
             }
         });
     }
