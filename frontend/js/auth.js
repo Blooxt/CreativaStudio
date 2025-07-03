@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href = "dashboard.html";
                 }, 1000);
             } else {
-                errorMsg.textContent = "Credenciales incorrectas. Usa: cliente@creativastudio.com / Creativa123";
+                errorMsg.textContent = "Credenciales incorrectas.";
                 errorMsg.style.color = "red";
             }
         });
