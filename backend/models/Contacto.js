@@ -22,6 +22,11 @@ const contactoSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    estado: {
+        type: String,
+        enum: ['nuevo', 'contactado', 'descartado'],
+        default: 'nuevo'
+    },
     fecha: {
         type: Date,
         default: Date.now

@@ -391,3 +391,50 @@ footer {
         font-size: 18px;
     }
 }
+
+/* Estilos para el login */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 2rem;
+}
+
+.login-container {
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-brand h1 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.login-brand p {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: 1rem;
+}
+
+.login-btn {
+    background: #3498db;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #2980b9;
+}
