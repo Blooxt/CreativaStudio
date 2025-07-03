@@ -57,3 +57,4 @@ o	    Contraseñas hasheadas con bcryptjs antes de almacenar
 o	    Uso de JWT (JSON Web Tokens) para autenticación sin almacenar sesiones
 •	Transmisión:
 o	    Datos sensibles (credenciales) se envían en el body de la petición, no en la URL
+
