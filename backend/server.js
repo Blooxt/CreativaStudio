@@ -34,6 +34,7 @@ app.use(bodyParser.json());
 // Rutas
 app.use('/api/contacto', contactoRoutes);
 app.use('/api/auth', authRoutes)
+app.use('/', (req, res) => res.send('API de Contacto') )
 
 // Conexión a MongoDB
 mongoose.connect(process.env.MONGODB_URI)
