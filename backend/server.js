@@ -10,7 +10,8 @@ const app = express();
 
 const whitelist = [
     'http://localhost:5173',                  // para desarrollo local
-    'https://frontend-studio-zeta.vercel.app' // producción en Vercel
+    'https://frontend-studio-zeta.vercel.app', // producción en Vercel
+    'https://creativastudio.onrender.com'       // producción en Render
 ];
 
 // Middleware
