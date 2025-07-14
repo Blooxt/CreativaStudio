@@ -10,8 +10,8 @@ const app = express();
 
 const whitelist = [
     'http://localhost:5173',                  // para desarrollo local
-    'https://frontend-mocha-eight-33.vercel.app/', // producción en Vercel
-    'https://creativastudio.onrender.com'       // producción en Render
+    'https://creativastudio.onrender.com' ,      // producción en Render
+    'https://frontend-eight-weld-50.vercel.app' //nuevo de aqui viene el frontend
 ];
 
 // Middleware
