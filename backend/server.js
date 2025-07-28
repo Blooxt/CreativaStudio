@@ -10,6 +10,8 @@ const app = express();
 
 const whitelist = [
     'http://localhost:5173',                  // para desarrollo local
+    'http://localhost:3000',                  // para frontend local 
+    'http://frontend',                  // para frontend red
     'https://creativastudio.onrender.com' ,      // producción en Render
     'https://frontend-eight-weld-50.vercel.app' //nuevo de aqui viene el frontend
 ];
@@ -44,6 +46,8 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://${HOST}:${PORT}`);
 });

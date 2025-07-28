@@ -1,4 +1,4 @@
-const Contacto = require('../../backend/models/Contacto');
+const Contacto = require('../models/Contacto');
 const axios = require('axios');
 exports.crearContacto = async (req, res) => {
     try {
