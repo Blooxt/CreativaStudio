@@ -9,6 +9,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        /* Estilos para el modal y el checkbox */
+        .terms-checkbox {
+            margin: 15px 0 15px 0;
+            padding-left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .terms-checkbox input {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+        
+        .terms-checkbox label {
+            margin-left: 0;
+        }
+        
+        .terms-checkbox a {
+            color: #4a90e2;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 25px;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .terms-content {
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        .contact-form form {
+            padding-left: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +89,6 @@
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#portafolio">Portafolio</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <!-- Dentro de <ul class="nav-links"> agrega esto al final -->
                     <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
                 <div class="burger">
@@ -118,6 +185,10 @@
                         <div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6LeFaWsrAAAAABUWyigbEy58y9dKh5BpjYzeZBaI"></div>
                         </div>
+                        <div class="form-group terms-checkbox">
+                            <input type="checkbox" id="terminos" name="terminos" required />
+                            <label for="terminos">Acepto los <a href="#" data-modal="terms-modal">términos y condiciones</a></label>
+                        </div>
                         <button type="submit" class="btn">Enviar Mensaje</button>
                     </form>
                     <div id="form-message"></div>
@@ -126,12 +197,65 @@
         </div>
     </section>
 
+    <!-- Modal para Términos y Condiciones (oculto por defecto) -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Términos y Condiciones</h2>
+            <div class="terms-content">
+                <p>Al enviar este formulario, usted acepta que:</p>
+                <ol>
+                    <li>Los datos proporcionados serán utilizados únicamente para responder a su consulta.</li>
+                    <li>Nos pondremos en contacto con usted a través de los medios proporcionados.</li>
+                    <li>Sus datos no serán compartidos con terceros sin su consentimiento expreso.</li>
+                    <li>Puede solicitar la eliminación de sus datos en cualquier momento.</li>
+                </ol>
+                <p>Para más información, consulte nuestra <a href="#">Política de Privacidad</a>.</p>
+            </div>
+            <button class="btn accept-terms">Aceptar</button>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <p>&copy; 2025 CreativaStudio. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <script>
+        // JavaScript para manejar el modal
+        document.addEventListener('DOMContentLoaded', function() {
+            // Abrir modal al hacer clic en el enlace de términos
+            const termsLinks = document.querySelectorAll('[data-modal="terms-modal"]');
+            const modal = document.getElementById('terms-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const acceptTerms = document.querySelector('.accept-terms');
+            
+            termsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.style.display = 'block';
+                });
+            });
+            
+            // Cerrar modal
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            acceptTerms.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.getElementById('terminos').checked = true;
+            });
+            
+            // Cerrar al hacer clic fuera del modal
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 
