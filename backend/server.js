@@ -9,6 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 
 const whitelist = [
+    'http://localhost:3212',                  // para desarrollo local
     'http://localhost:5173',                  // para desarrollo local
     'http://localhost:3000',                  // para frontend local 
     'http://frontend',                  // para frontend red
